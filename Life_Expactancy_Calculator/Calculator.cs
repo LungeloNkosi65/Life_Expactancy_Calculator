@@ -87,11 +87,26 @@ namespace Life_Expactancy_Calculator.Models
                         CurrentExpected -= item.ReturnSomething();
                     }
                 }
-                //if (item. TypeQuestion == TypeOfQuestion.LongQuestion)
-                //{
-                //    Console.WriteLine(item.Question);
-                //    input = Console.ReadLine().ToUpper();
-                //}
+                if (item.TypeQuestion == TypeOfQuestion.LongQuestion)
+                {
+                    Console.WriteLine(item.Question);
+                    input = Console.ReadLine().ToUpper();
+                    switch (input)
+                    {
+                        case "1":
+                            CurrentExpected = CurrentExpected;
+                            CurrentExpected -= (CurrentExpected * (item.ReturnSomething()/100));
+                            break;
+                        case "2":
+                            CurrentExpected -= (CurrentExpected * ((item.ReturnSomething() / 100))/2);
+
+                            break;
+
+                        case "3":
+                            CurrentExpected -= (CurrentExpected * (item.ReturnSomething() / 100));
+                            break;
+                    }
+                }
 
             }
             if (CurrentExpected < age)
